@@ -1,0 +1,192 @@
+/* Using CSS variables for easy theme management */
+:root {
+    --primary-color: #3B82F6; /* Blue */
+    --secondary-color: #10B981; /* Green */
+    --background-color: #F3F4F6; /* Light Gray */
+    --card-background: #FFFFFF;
+    --text-color: #374151; /* Dark Gray */
+    --light-text-color: #6B7280; /* Medium Gray */
+    --border-color: #E5E7EB; /* Lighter Gray */
+    --underweight-color: #3B82F6; /* Blue */
+    --normal-color: #10B981; /* Green */
+    --overweight-color: #F59E0B; /* Amber */
+    --obese-color: #EF4444; /* Red */
+    --error-color: #EF4444; /* Red for error messages */
+}
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 450px;
+    width: 100%;
+}
+
+.calculator-card {
+    background-color: var(--card-background);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.logo-icon {
+    color: var(--secondary-color);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--light-text-color);
+    margin-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.calculate-btn {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.875rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 10px -3px rgba(59, 130, 246, 0.3);
+}
+
+.result-card {
+    margin-top: 2rem;
+    background-color: var(--background-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.result-card h2 {
+    font-size: 1.125rem;
+    color: var(--light-text-color);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.bmi-value {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.bmi-category {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 0.25rem;
+}
+
+/* Category Colors for text */
+.underweight { color: var(--underweight-color); }
+.normal { color: var(--normal-color); }
+.overweight { color: var(--overweight-color); }
+.obese { color: var(--obese-color); }
+.error { color: var(--error-color); }
+
+.bmi-scale {
+    display: flex;
+    width: 100%;
+    margin-top: 1.5rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.scale-item {
+    flex: 1;
+    text-align: center;
+    padding: 0.5rem;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Category Colors for scale background */
+.scale-item.underweight { background-color: var(--underweight-color); }
+.scale-item.normal { background-color: var(--normal-color); }
+.scale-item.overweight { background-color: var(--overweight-color); }
+.scale-item.obese { background-color: var(--obese-color); }
+
+/* Responsive design for smaller screens */
+@media (max-width: 500px) {
+    body {
+        padding: 1rem;
+    }
+    .calculator-card {
+        padding: 1.5rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .subtitle {
+        font-size: 0.875rem;
+    }
+}
